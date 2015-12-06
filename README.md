@@ -1,5 +1,3 @@
-# README
-
 #airline-weather.vim
 
 ![screenshot](https://raw.githubusercontent.com/Wildog/airline-weather.vim/master/screenshot.png)
@@ -11,25 +9,25 @@ __This extension depends on [webapi-vim](https://github.com/mattn/webapi-vim), y
 
 * ###Use Vundle
 
-		Plugin 'mattn/webapi-vim'
-		Plugin 'Wildog/airline-weather.vim'
-	
+        Plugin 'mattn/webapi-vim'
+        Plugin 'Wildog/airline-weather.vim'
+    
 * ###Manually
 Make sure you have installed [webapi-vim](https://github.com/mattn/webapi-vim), then put files to corresponding directories.
 
 ##Usage
 
 * Set location
-	
-	  let g:weather#area = 'beijing,china'
+    
+      let g:weather#area = 'beijing,china'
 
 * Set unit ('metric' for ºC, 'imperial' for ºF.):
 
-	  let g:weather#unit = 'metric'
+      let g:weather#unit = 'metric'
 
 * Set API Key, default key is provided but it'd be better if you use your own OpenWeatherMap API key, you can apply for it [here](http://openweathermap.org/appid) for free:
-		
-	  let g:weather#appid = '2de143494c0b295cca9337e1e96b00e0'
+        
+      let g:weather#appid = '2de143494c0b295cca9337e1e96b00e0'
 
 * This extension use a cache file to store weather informations, and update the weather information every hour as default, you may change it with caution, update too frequently will slow down vim.
 
