@@ -10,7 +10,7 @@ Note: This extension depends on webapi-vim, you should install it first:
 <https://github.com/mattn/webapi-vim>
 ==============================================================================
 
-CONFIGURATION						 *weather-configuration*
+CONFIGURATION                        *weather-configuration*
 
 Note: Change the location and unit to your own before using.
 
@@ -48,7 +48,7 @@ you can apply for it here for free: <http://openweathermap.org/appid>
 ---------------------------------------------------------------- *weather-appid*
 * Configure your own API key.
 >
-    weather#appid', '2de143494c0b295cca9337e1e96b00e0
+    let g:weather#appid = '2de143494c0b295cca9337e1e96b00e0'
 
 --------------------------------------------------------------- *weather-status*
 * Configure status messages, you can find informations about weather
