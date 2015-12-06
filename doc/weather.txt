@@ -54,7 +54,7 @@ you can apply for it here for free: <http://openweathermap.org/appid>
 * Configure status messages, you can find informations about weather
   icon code at: <http://openweathermap.org/weather-conditions>
 >
-    let s:status = get(g:, 'weather#status_map', {
+    let g:weather#status_map = {
     \ "01": "☼",
     \ "02": "☁",
     \ "03": "☁",
@@ -64,7 +64,7 @@ you can apply for it here for free: <http://openweathermap.org/appid>
     \ "11": "☈",
     \ "13": "❅",
     \ "50": "≡",
-    \})
+    \}
 <
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:
