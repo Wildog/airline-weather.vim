@@ -30,6 +30,7 @@ let g:weather#format = get(g:, 'weather#format', '%s %.0f'.s:unit[g:weather#unit
 let g:weather#appid = get(g:, 'weather#appid', '2de143494c0b295cca9337e1e96b00e0')
 
 function! weather#get() abort
+  try
     let file = expand(g:weather#cache_file)
     let content = ""
     if filereadable(file)
@@ -48,4 +49,7 @@ function! weather#get() abort
     return printf(g:weather#format,
     \ has_key(s:status, status) ? s:status[status] : '?',
     \ degree)
+  catch
+  endtry
+  return ''
 endfunction
