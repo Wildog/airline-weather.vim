@@ -1,0 +1,70 @@
+*weather.txt* airline-weather.vim
+
+==============================================================================
+INTRODUCTION                                              *weather-introduction*
+
+This is a vim-airline extension to show current weather on the right
+end of the status line, just like the weather segment in Powerline.
+
+Note: This extension depends on webapi-vim, you should install it first:
+<https://github.com/mattn/webapi-vim>
+==============================================================================
+
+CONFIGURATION						 *weather-configuration*
+
+Note: Change the location and unit to your own before using.
+
+Default configurations are shown below every item, you can customize them
+for yourself, you may want to change the cache file path and display format.
+
+And it'd be better if you use your own OpenWeatherMap API key,
+you can apply for it here for free: <http://openweathermap.org/appid>
+
+
+------------------------------------------------------------- *weather-location*
+* Configure the location.
+>
+    let g:weather#area = 'beijing,china'
+
+----------------------------------------------------------------- *weather-unit*
+* Configure the unit, 'metric' for ºC, 'imperial' for ºF.
+>
+    let g:weather#unit = 'metric'
+
+---------------------------------------------------------------- *weather-cache*
+* This extension use a cache file to store weather informations,
+  and update the weather information every hour as default,
+  you may change it with caution, update too frequently will slow
+  down vim.
+>
+    let g:weather#cache_file = '~/.cache/.weather'
+    let g:weather#cache_ttl = '3600'
+
+--------------------------------------------------------------- *weather-format*
+* Configure the format, %s for weather icon, %f for temperature.
+>
+    let g:weather#format = '%s %.0f'.s:unit[g:weather#unit]
+
+---------------------------------------------------------------- *weather-appid*
+* Configure your own API key.
+>
+    weather#appid', '2de143494c0b295cca9337e1e96b00e0
+
+--------------------------------------------------------------- *weather-status*
+* Configure status messages, you can find informations about weather
+  icon code at: <http://openweathermap.org/weather-conditions>
+>
+    let s:status = get(g:, 'weather#status_map', {
+    \ "01": "☼",
+    \ "02": "☁",
+    \ "03": "☁",
+    \ "04": "☁",
+    \ "09": "☂",
+    \ "10": "☂",
+    \ "11": "☈",
+    \ "13": "❅",
+    \ "50": "≡",
+    \})
+<
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:
