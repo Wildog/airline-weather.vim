@@ -55,7 +55,7 @@ you can apply for it here for free: <http://openweathermap.org/appid>
   icon code at: <http://openweathermap.org/weather-conditions>
 >
     let g:weather#status_map = {
-    \ "01": "☼",
+    \ "01": "☀",
     \ "02": "☁",
     \ "03": "☁",
     \ "04": "☁",
