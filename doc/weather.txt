@@ -6,7 +6,9 @@ INTRODUCTION                                              *weather-introduction*
 This is a vim-airline extension to show current weather on the right
 end of the status line, just like the weather segment in Powerline.
 
-Note: This extension depends on webapi-vim, you should install it first:
+Note: This extension depends on vim-airline and webapi-vim, you should
+make sure you have them installed: 
+<https://github.com/bling/vim-airline>
 <https://github.com/mattn/webapi-vim>
 ==============================================================================
 
