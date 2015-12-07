@@ -6,7 +6,7 @@ let s:unit = {
 \}
 
 let s:status = get(g:, 'weather#status_map', {
-\ "01": "☼",
+\ "01": "☀",
 \ "02": "☁",
 \ "03": "☁",
 \ "04": "☁",
@@ -30,26 +30,30 @@ let g:weather#format = get(g:, 'weather#format', '%s %.0f'.s:unit[g:weather#unit
 let g:weather#appid = get(g:, 'weather#appid', '2de143494c0b295cca9337e1e96b00e0')
 
 function! weather#get() abort
-  try
     let file = expand(g:weather#cache_file)
-    let content = ""
-    if filereadable(file)
-      if localtime() - getftime(file) < g:weather#cache_ttl
-        let content = join(readfile(file), "\n")
-      endif
+    " init cache file if not exist
+    if !filereadable(file)
+      let init_content = webapi#http#get(printf("http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", g:weather#area, g:weather#unit, g:weather#appid)).content
+      call writefile(split(init_content, "\n"), file)
     endif
-    if content == ""
-      let content = webapi#http#get(printf("http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", g:weather#area, g:weather#unit, g:weather#appid)).content
+    " cache exists
+    let content = join(readfile(file), "\n")
+    " cache expired
+    if localtime() - getftime(file) > g:weather#cache_ttl
+      let connectivity = system("ping -q -c 1 -t 1 baidu.com > /dev/null && echo y || echo n")[0]
+      " internet connected, get weather and update cache
+      if connectivity == 'y'
+        let content = webapi#http#get(printf("http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", g:weather#area, g:weather#unit, g:weather#appid)).content
+      endif
+      " no internet connection, just use old cache and rewrite it
       call writefile(split(content, "\n"), file)
     endif
     let json = webapi#json#decode(content)
     let area = json["name"]
     let status = json["weather"][0]["icon"][:1]
     let degree = json["main"]["temp"]
-    return printf(g:weather#format,
+    return printf(g:airline_right_alt_sep.' '.g:weather#format,
     \ has_key(s:status, status) ? s:status[status] : '?',
     \ degree)
-  catch
-  endtry
-  return ''
+    return ''
 endfunction
