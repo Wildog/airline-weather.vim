@@ -24,7 +24,7 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
 
 * Set location
 
-        let g:weather#area = 'beijing,china'
+        let g:weather#area = 'newyork,us'
 
 * Set unit ('metric' for ºC, 'imperial' for ºF.):
 
@@ -56,6 +56,10 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
         \ "13": "❅",
         \ "50": "≡",
         \})
+
+* Plus, you can force refresh the weather by
+
+        :call RefreshWeather()
 
 ##LICENSE
 MIT
