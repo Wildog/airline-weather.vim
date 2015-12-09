@@ -55,7 +55,7 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
         \ "11": "☈",
         \ "13": "❅",
         \ "50": "≡",
-        \})
+        \}
 
 * Plus, you can force refresh the weather by
 
