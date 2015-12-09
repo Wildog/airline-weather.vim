@@ -4,5 +4,5 @@ endfunction
 
 function! airline#extensions#weather#apply(...)
   let w:airline_section_z = get(w:, 'airline_section_z', g:airline_section_z)
-  let w:airline_section_z .= '%{weather#get()}'
+  let w:airline_section_z .= '%{weather#get(0)}'
 endfunction
