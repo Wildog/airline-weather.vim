@@ -26,7 +26,7 @@ you can apply for it here for free: <http://openweathermap.org/appid>
 ------------------------------------------------------------- *weather-location*
 * Configure the location.
 >
-    let g:weather#area = 'beijing,china'
+    let g:weather#area = 'newyorkcity,us'
 
 ----------------------------------------------------------------- *weather-unit*
 * Configure the unit, 'metric' for ºC, 'imperial' for ºF.
