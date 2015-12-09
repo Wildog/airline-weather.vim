@@ -29,7 +29,7 @@ let g:weather#appid = get(g:, 'weather#appid', '2de143494c0b295cca9337e1e96b00e0
 
 function! weather#get(forcerefresh) abort
   if !exists("g:weather#area")
-    echom "Please set your location in .vimrc, for example: let g:weather#area='newyork,us'"
+    echom "Please set your location in .vimrc, for example: let g:weather#area='newyorkcity,us'"
     return ""
     finish
   endif
