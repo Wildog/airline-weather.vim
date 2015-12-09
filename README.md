@@ -24,7 +24,7 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
 
 * Set location
 
-        let g:weather#area = 'newyork,us'
+        let g:weather#area = 'newyorkcity,us'
 
 * Set unit ('metric' for ºC, 'imperial' for ºF.):
 
