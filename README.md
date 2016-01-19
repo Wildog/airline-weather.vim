@@ -43,7 +43,7 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
 
         let g:weather#format = '%s %.0f'
 
-* Configure weather icon, suffix 'd' for the day and 'n' for the night, you can find informations about weather icon code [here](http://openweathermap.org/weather-conditions)
+* Configure weather icons, suffix 'd' for the day and 'n' for the night, you can find informations about weather icon code [here](http://openweathermap.org/weather-conditions)
 
         let g:weather#status_map = {
         \ "01d": "☀",
