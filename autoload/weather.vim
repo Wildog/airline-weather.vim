@@ -6,15 +6,24 @@ let s:unit = {
 \}
 
 let s:status = get(g:, 'weather#status_map', {
-\ "01": "☀",
-\ "02": "☁",
-\ "03": "☁",
-\ "04": "☁",
-\ "09": "☂",
-\ "10": "☂",
-\ "11": "☈",
-\ "13": "❅",
-\ "50": "≡",
+\ "01d": "☀",
+\ "02d": "☁",
+\ "03d": "☁",
+\ "04d": "☁",
+\ "09d": "☂",
+\ "10d": "☂",
+\ "11d": "☈",
+\ "13d": "❅",
+\ "50d": "≡",
+\ "01n": "☽",
+\ "02n": "☁",
+\ "03n": "☁",
+\ "04n": "☁",
+\ "09n": "☂",
+\ "10n": "☂",
+\ "11n": "☈",
+\ "13n": "❅",
+\ "50n": "≡",
 \})
 
 let g:weather#cache_file = get(g:, 'weather#cache_file', '~/.cache/.weather')
@@ -53,7 +62,7 @@ function! weather#get(forcerefresh) abort
   endif
   let json = webapi#json#decode(content)
   let area = json["name"]
-  let status = json["weather"][0]["icon"][:1]
+  let status = json["weather"][0]["icon"][:2]
   let degree = json["main"]["temp"]
   return printf(g:airline_right_alt_sep.' '.g:weather#format,
   \ has_key(s:status, status) ? s:status[status] : '?',

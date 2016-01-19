@@ -43,18 +43,27 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
 
         let g:weather#format = '%s %.0f'
 
-* Configure status messages, you can find informations about weather icon code [here](http://openweathermap.org/weather-conditions)
+* Configure weather icon, suffix 'd' for the day and 'n' for the night, you can find informations about weather icon code [here](http://openweathermap.org/weather-conditions)
 
         let g:weather#status_map = {
-        \ "01": "☀",
-        \ "02": "☁",
-        \ "03": "☁",
-        \ "04": "☁",
-        \ "09": "☂",
-        \ "10": "☂",
-        \ "11": "☈",
-        \ "13": "❅",
-        \ "50": "≡",
+        \ "01d": "☀",
+        \ "02d": "☁",
+        \ "03d": "☁",
+        \ "04d": "☁",
+        \ "09d": "☂",
+        \ "10d": "☂",
+        \ "11d": "☈",
+        \ "13d": "❅",
+        \ "50d": "≡",
+        \ "01n": "☽",
+        \ "02n": "☁",
+        \ "03n": "☁",
+        \ "04n": "☁",
+        \ "09n": "☂",
+        \ "10n": "☂",
+        \ "11n": "☈",
+        \ "13n": "❅",
+        \ "50n": "≡",
         \}
 
 * Plus, you can force refresh the weather by
