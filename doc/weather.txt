@@ -53,8 +53,9 @@ you can apply for it here for free: <http://openweathermap.org/appid>
     let g:weather#appid = '2de143494c0b295cca9337e1e96b00e0'
 
 --------------------------------------------------------------- *weather-status*
-* Configure weather icons, suffix 'd' for the day and 'n' for the night, you can find informations about weather
-  icon code at: <http://openweathermap.org/weather-conditions>
+* Configure weather icons, suffix 'd' for the day and 'n' for the night, you 
+* can find informations about weather icon code at: 
+* <http://openweathermap.org/weather-conditions>
 >
     let g:weather#status_map = {
     \ "01d": "☀",
