@@ -61,6 +61,9 @@ function! weather#get(forcerefresh) abort
     call writefile(split(content, "\n"), file)
   endif
   let json = webapi#json#decode(content)
+  if !has_key(json, "name")
+      return g:airline_right_alt_sep.' '."API Err"
+  endif
   let area = json["name"]
   let status = json["weather"][0]["icon"][:2]
   let degree = json["main"]["temp"]
