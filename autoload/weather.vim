@@ -34,7 +34,7 @@ let g:weather#unit = get(g:, 'weather#unit', 'metric')
 
 let g:weather#format = get(g:, 'weather#format', '%s %.0f'.s:unit[g:weather#unit])
 
-let g:weather#appid = get(g:, 'weather#appid', '2de143494c0b295cca9337e1e96b00e0')
+let g:weather#appid = get(g:, 'weather#appid', 'ed90eae4e8091ae0975288aeb85f9f74')
 
 function! weather#get(forcerefresh) abort
   if !exists("g:weather#area")
