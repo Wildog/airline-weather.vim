@@ -1,13 +1,13 @@
-#airline-weather.vim
+# airline-weather.vim
 
 ![screenshot](https://raw.githubusercontent.com/Wildog/airline-weather.vim/master/screenshot.png)
 This is a vim-airline extension to show current weather on the right end of the status line, just like the weather segment in Powerline.
 
 __This extension depends on [vim-airline](https://github.com/bling/vim-airline) and [webapi-vim](https://github.com/mattn/webapi-vim), you should install them first.__
 
-##Installation
+## Installation
 
-* ###Use Vundle
+* ### Use Vundle
 
     Make sure you have these lines in your .vimrc
 
@@ -17,10 +17,11 @@ __This extension depends on [vim-airline](https://github.com/bling/vim-airline) 
 
     :PluginInstall
 
-* ###Manually
-Make sure you have installed [vim-airline](https://github.com/bling/vim-airline) and [webapi-vim](https://github.com/mattn/webapi-vim), then put files to corresponding directories.
+* ### Manually
 
-##Usage
+  Make sure you have installed [vim-airline](https://github.com/bling/vim-airline) and [webapi-vim](https://github.com/mattn/webapi-vim), then put files to corresponding directories.
+
+### Usage
 
 * Set location
 
@@ -68,7 +69,10 @@ Make sure you have installed [vim-airline](https://github.com/bling/vim-airline)
 
 * Plus, you can force refresh the weather by
 
-        :call RefreshWeather()
+    ```
+    :call RefreshWeather()
+    ```
 
-##LICENSE
+## LICENSE
+
 MIT

@@ -43,16 +43,19 @@ function! weather#get(forcerefresh) abort
     finish
   endif
   let file = expand(g:weather#cache_file)
-  " init cache file if not exist
-  if !filereadable(file)
+  " init cache file if not exist or file is empty
+  if !filereadable(file) || getfsize(file) < 1
     let init_content = webapi#http#get(printf("http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", g:weather#area, g:weather#unit, g:weather#appid)).content
     call writefile(split(init_content, "\n"), file)
   endif
+
   " cache exists
   let content = join(readfile(file), "\n")
-  " cache expired
-  if localtime() - getftime(file) > g:weather#cache_ttl || a:forcerefresh
-    let connectivity = system("ping -q -c 1 -t 1 baidu.com > /dev/null && echo y || echo n")[0]
+  let cached_json = webapi#json#decode(content)
+
+  " cache file is empty or cache content is error messages (e.g. 404) or cache expired 
+  if (!has_key(cached_json, "name")) || (localtime() - getftime(file) > g:weather#cache_ttl || a:forcerefresh)
+    let connectivity = system("ping -q -c 1 -W 1 baidu.com > /dev/null && echo y || echo n")[0]
     " internet connected, get weather and update cache
     if connectivity == 'y'
       let content = webapi#http#get(printf("http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", g:weather#area, g:weather#unit, g:weather#appid)).content
